@@ -1,0 +1,35 @@
+name: Update submission count
+
+on:
+  schedule:
+    - cron: "15 5 * * *"   # daily, 05:15 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Read counter
+        run: |
+          value=$(curl -fsS https://abacus.jasoncameron.dev/get/buchinski-net/contact-form | jq -r '.value // 0' || echo "")
+          # A counter that has never been hit returns 404 or -1.
+          if ! [[ "$value" =~ ^[0-9]+$ ]]; then value=0; fi
+          echo "$value" > submissions.txt
+          cat submissions.txt
+
+      - name: Commit if changed
+        run: |
+          git add submissions.txt
+          if git diff --cached --quiet; then
+            echo "No change"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update submission count to $(cat submissions.txt)"
+          git push

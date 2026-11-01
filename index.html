@@ -2,40 +2,167 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Buchinski.net</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buchinski.net — Consulting</title>
+  <meta name="description" content="Buchinski.net helps businesses sharpen strategy, streamline operations and put technology to work." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <img src="buchinski-logo.png" alt="Buchinski.net Logo" class="logo">
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-    </nav>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="#top" class="wordmark" aria-label="Buchinski.net home">Buchinski<span>.net</span></a>
+      <nav aria-label="Main">
+        <a href="#services">Services</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <h1>Trusted Consulting. Tailored Results.</h1>
-    <a href="#services" class="cta">Get in Touch</a>
-  </section>
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Independent consulting</p>
+        <h1>Clear thinking for the work that matters.</h1>
+        <p class="lede">We help businesses decide where to go, make day-to-day operations run smoothly, and choose technology that actually earns its keep.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Start a conversation</a>
+          <a href="#services" class="btn btn-ghost">See what we do</a>
+        </div>
+      </div>
+    </section>
 
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Buchinski.net is a consulting firm helping businesses streamline operations, embrace change, and grow with confidence.</p>
-  </section>
+    <section id="services" class="section">
+      <div class="wrap">
+        <h2>Services</h2>
+        <p class="section-intro">Three practices that work on their own or together, sized to the problem in front of you.</p>
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 4a6 6 0 1 1-6 6 6 6 0 0 1 6-6Zm0 4a2 2 0 1 0 2 2 2 2 0 0 0-2-2Z"/></svg>
+            </div>
+            <h3>Strategy</h3>
+            <p>Set direction you can act on. We work through priorities, growth options and the trade-offs between them, then turn the decision into a plan with owners and milestones.</p>
+            <ul>
+              <li>Business and growth planning</li>
+              <li>Market and competitor review</li>
+              <li>Roadmaps and goal setting</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M19.4 13a7.5 7.5 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.6 7.6 0 0 0-1.7-1L15 3.3h-4l-.4 2.6a7.6 7.6 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.5 7.5 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.6 7.6 0 0 0 1.7 1l.4 2.6h4l.4-2.6a7.6 7.6 0 0 0 1.7-1l2.5 1 2-3.5ZM13 15.5A3.5 3.5 0 1 1 16.5 12 3.5 3.5 0 0 1 13 15.5Z" transform="translate(-1 0)"/></svg>
+            </div>
+            <h3>Operations</h3>
+            <p>Take the friction out of how work gets done. We map your processes as they really run, find the bottlenecks, and fix them with you rather than just reporting on them.</p>
+            <ul>
+              <li>Process mapping and redesign</li>
+              <li>Cost and efficiency reviews</li>
+              <li>Change management</li>
+            </ul>
+          </article>
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-6v2h3v2H7v-2h3v-2H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2v8h14V7Z"/></svg>
+            </div>
+            <h3>Technology</h3>
+            <p>Pick, set up and get value from the right tools. Practical advice on systems, automation and data, with no vendor to sell and no lock-in.</p>
+            <ul>
+              <li>Systems selection and rollout</li>
+              <li>Workflow automation</li>
+              <li>Reporting and data</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="service-boxes">
-      <div class="service">Strategy</div>
-      <div class="service">Operations</div>
-      <div class="service">Technology</div>
+    <section id="approach" class="section section-alt">
+      <div class="wrap">
+        <h2>How we work</h2>
+        <p class="section-intro">A simple, predictable process, so you always know what's happening and why.</p>
+        <ol class="steps">
+          <li>
+            <h3>Listen</h3>
+            <p>We start by understanding your business, your goals and what's getting in the way.</p>
+          </li>
+          <li>
+            <h3>Assess</h3>
+            <p>We look at the evidence (numbers, processes, people) and say plainly what we find.</p>
+          </li>
+          <li>
+            <h3>Plan</h3>
+            <p>Together we agree on a focused plan with clear priorities, costs and outcomes.</p>
+          </li>
+          <li>
+            <h3>Deliver</h3>
+            <p>We help put it in place and stay until the results stick.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="wrap about">
+        <div>
+          <h2>About</h2>
+          <p>Buchinski.net is an independent consulting practice that helps businesses streamline operations, embrace change and grow with confidence.</p>
+          <p>We keep engagements small and senior: you work directly with the people doing the thinking. Our advice is honest and practical, and it's sized to what your business can actually take on.</p>
+        </div>
+        <ul class="values">
+          <li><strong>Practical</strong><span>Recommendations you can act on Monday morning.</span></li>
+          <li><strong>Independent</strong><span>No products to push and no commissions.</span></li>
+          <li><strong>Plain-spoken</strong><span>Clear findings without the jargon.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-alt">
+      <div class="wrap contact">
+        <div>
+          <h2>Get in touch</h2>
+          <p>Tell us a little about your business and what you're working on. We'll get back to you to set up a short, no-obligation conversation.</p>
+        </div>
+        <div class="form-panel">
+          <form id="contact-form" novalidate>
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="company">Company <span class="optional">(optional)</span></label>
+              <input id="company" name="company" type="text" autocomplete="organization" />
+            </div>
+            <div class="field">
+              <label for="message">How can we help?</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </form>
+          <div class="form-thanks" id="form-thanks" tabindex="-1" hidden>
+            <div class="check" aria-hidden="true">✓</div>
+            <h3>Thank you, your message has been accepted.</h3>
+            <p>We'll be in touch soon.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span class="wordmark wordmark-small">Buchinski<span>.net</span></span>
+      <p>© <span id="year">2026</span> Buchinski.net</p>
     </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Buchinski.net</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
