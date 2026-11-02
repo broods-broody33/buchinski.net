@@ -3,151 +3,320 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Buchinski.net — Consulting</title>
-  <meta name="description" content="Buchinski.net helps businesses sharpen strategy, streamline operations and put technology to work." />
+  <title>Buchinski.net — Strategy, Operations &amp; Technology Consulting</title>
+  <meta name="description" content="Buchinski.net is an independent consultancy that turns business complexity into clarity: sharper strategy, smoother operations and technology that earns its keep." />
+  <meta name="theme-color" content="#0c0f0e" />
+  <link rel="canonical" href="https://buchinski.net/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://buchinski.net/" />
+  <meta property="og:title" content="Buchinski.net — Complexity in. Clarity out." />
+  <meta property="og:description" content="Independent consulting for strategy, operations and technology." />
+  <meta property="og:image" content="https://buchinski.net/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"Buchinski.net","url":"https://buchinski.net/","description":"Independent consulting for strategy, operations and technology.","serviceType":["Strategy consulting","Operations consulting","Technology consulting"]}
+  </script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap header-inner">
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
       <a href="#top" class="wordmark" aria-label="Buchinski.net home">Buchinski<span>.net</span></a>
-      <nav aria-label="Main">
+      <nav aria-label="Main" id="menu">
         <a href="#services">Services</a>
         <a href="#approach">Approach</a>
+        <a href="#notes">Field notes</a>
         <a href="#about">About</a>
-        <a href="#contact" class="nav-cta">Contact</a>
+        <a href="#contact" class="menu-only">Contact</a>
       </nav>
+      <a href="#contact" class="btn btn-small magnetic"><span class="long">Start a conversation</span><span class="short">Contact</span></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="menu" aria-label="Menu"><span></span><span></span></button>
     </div>
   </header>
 
   <main id="top">
+    <!-- Hero: canvas animation turns tangled lines into ordered lanes -->
     <section class="hero">
-      <div class="wrap">
-        <p class="eyebrow">Independent consulting</p>
-        <h1>Clear thinking for the work that matters.</h1>
-        <p class="lede">We help businesses decide where to go, make day-to-day operations run smoothly, and choose technology that actually earns its keep.</p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Start a conversation</a>
-          <a href="#services" class="btn btn-ghost">See what we do</a>
+      <canvas id="flow" aria-hidden="true"></canvas>
+      <div class="hero-scrim" aria-hidden="true"></div>
+      <div class="wrap hero-content">
+        <p class="eyebrow reveal">Independent consulting &nbsp;/&nbsp; Strategy · Operations · Technology</p>
+        <h1 class="hero-title">
+          <span class="line"><span>Complexity in.</span></span>
+          <span class="line"><span><em>Clarity</em> out.</span></span>
+        </h1>
+        <p class="lede reveal" style="--d:.5s">We help businesses untangle how they decide, operate and use technology, so the work gets simpler and the results get better.</p>
+        <div class="hero-actions reveal" style="--d:.65s">
+          <a href="#contact" class="btn btn-light magnetic">Start a conversation <span class="arrow">→</span></a>
+          <a href="#services" class="btn btn-outline">What we do</a>
         </div>
+      </div>
+      <div class="fig fig-left" aria-hidden="true">fig. 01 — complexity</div>
+      <div class="fig fig-right" aria-hidden="true">clarity</div>
+      <a href="#statement" class="scroll-cue" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Strategy</span><i>✦</i><span>Operations</span><i>✦</i><span>Technology</span><i>✦</i><span>Process design</span><i>✦</i><span>Automation</span><i>✦</i><span>Change management</span><i>✦</i><span>Roadmaps</span><i>✦</i><span>Data &amp; reporting</span><i>✦</i>
+        <span>Strategy</span><i>✦</i><span>Operations</span><i>✦</i><span>Technology</span><i>✦</i><span>Process design</span><i>✦</i><span>Automation</span><i>✦</i><span>Change management</span><i>✦</i><span>Roadmaps</span><i>✦</i><span>Data &amp; reporting</span><i>✦</i>
+      </div>
+    </div>
+
+    <section class="statement" id="statement">
+      <div class="wrap">
+        <p class="kicker">Our point of view</p>
+        <p class="statement-text" data-words>Most businesses don't need more information. They need fewer, better decisions, and the follow-through to make them stick.</p>
       </div>
     </section>
 
     <section id="services" class="section">
       <div class="wrap">
-        <h2>Services</h2>
-        <p class="section-intro">Three practices that work on their own or together, sized to the problem in front of you.</p>
-        <div class="cards">
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 4a6 6 0 1 1-6 6 6 6 0 0 1 6-6Zm0 4a2 2 0 1 0 2 2 2 2 0 0 0-2-2Z"/></svg>
-            </div>
+        <header class="section-head">
+          <p class="kicker reveal">Services</p>
+          <h2 class="reveal">Three practices.<br /><em>One clear outcome.</em></h2>
+          <p class="section-intro reveal">Each works on its own or together, sized to the problem in front of you, never to a billing target.</p>
+        </header>
+
+        <div class="services">
+          <article class="service spotlight reveal">
+            <div class="service-num">01</div>
+            <svg class="illo" viewBox="0 0 240 150" aria-hidden="true">
+              <g class="draw" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+                <path pathLength="1" d="M8 18 C 90 18, 110 75, 176 75" />
+                <path pathLength="1" d="M8 46 C 80 46, 120 75, 176 75" />
+                <path pathLength="1" d="M8 75 L 176 75" />
+                <path pathLength="1" d="M8 104 C 80 104, 120 75, 176 75" />
+                <path pathLength="1" d="M8 132 C 90 132, 110 75, 176 75" />
+              </g>
+              <g fill="none" stroke="currentColor" stroke-width="1.2" class="rings">
+                <circle cx="176" cy="75" r="14" />
+                <circle cx="176" cy="75" r="30" opacity=".55" />
+                <circle cx="176" cy="75" r="48" opacity=".25" />
+              </g>
+              <circle class="accent-fill" cx="176" cy="75" r="5" />
+            </svg>
             <h3>Strategy</h3>
-            <p>Set direction you can act on. We work through priorities, growth options and the trade-offs between them, then turn the decision into a plan with owners and milestones.</p>
+            <p>Set a direction you can act on. We work through priorities, growth options and the trade-offs between them, then turn the decision into a plan with owners and milestones.</p>
             <ul>
-              <li>Business and growth planning</li>
-              <li>Market and competitor review</li>
-              <li>Roadmaps and goal setting</li>
+              <li>Business &amp; growth planning</li>
+              <li>Market &amp; competitor review</li>
+              <li>Roadmaps &amp; goal setting</li>
             </ul>
           </article>
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M19.4 13a7.5 7.5 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.6 7.6 0 0 0-1.7-1L15 3.3h-4l-.4 2.6a7.6 7.6 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.5 7.5 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.6 7.6 0 0 0 1.7 1l.4 2.6h4l.4-2.6a7.6 7.6 0 0 0 1.7-1l2.5 1 2-3.5ZM13 15.5A3.5 3.5 0 1 1 16.5 12 3.5 3.5 0 0 1 13 15.5Z" transform="translate(-1 0)"/></svg>
-            </div>
+
+          <article class="service spotlight reveal" style="--d:.12s">
+            <div class="service-num">02</div>
+            <svg class="illo" viewBox="0 0 240 150" aria-hidden="true">
+              <path id="ops-path" class="draw-one" pathLength="1" fill="none" stroke="currentColor" stroke-width="1.4" d="M30 40 H 120 H 210 V 110 H 120 H 30 Z" />
+              <g class="nodes">
+                <rect x="14" y="26" width="32" height="28" rx="8" />
+                <rect x="104" y="26" width="32" height="28" rx="8" />
+                <rect x="194" y="26" width="32" height="28" rx="8" />
+                <rect x="194" y="96" width="32" height="28" rx="8" />
+                <rect x="104" y="96" width="32" height="28" rx="8" />
+                <rect x="14" y="96" width="32" height="28" rx="8" />
+              </g>
+              <circle class="accent-fill" r="5">
+                <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#ops-path" />
+                </animateMotion>
+              </circle>
+            </svg>
             <h3>Operations</h3>
-            <p>Take the friction out of how work gets done. We map your processes as they really run, find the bottlenecks, and fix them with you rather than just reporting on them.</p>
+            <p>Take the friction out of how work gets done. We map your processes as they really run, find the bottlenecks and fix them with you, not just report on them.</p>
             <ul>
-              <li>Process mapping and redesign</li>
-              <li>Cost and efficiency reviews</li>
+              <li>Process mapping &amp; redesign</li>
+              <li>Cost &amp; efficiency reviews</li>
               <li>Change management</li>
             </ul>
           </article>
-          <article class="card">
-            <div class="card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-6v2h3v2H7v-2h3v-2H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm1 2v8h14V7Z"/></svg>
-            </div>
+
+          <article class="service spotlight reveal" style="--d:.24s">
+            <div class="service-num">03</div>
+            <svg class="illo" viewBox="0 0 240 150" aria-hidden="true">
+              <g class="draw" fill="none" stroke="currentColor" stroke-width="1.4">
+                <path pathLength="1" d="M40 35 H 120 V 75 H 200" />
+                <path pathLength="1" d="M40 115 H 80 V 75 H 120" />
+                <path pathLength="1" d="M160 35 V 115 H 200" />
+              </g>
+              <g class="nodes">
+                <rect x="26" y="21" width="28" height="28" rx="6" />
+                <rect x="146" y="21" width="28" height="28" rx="6" />
+                <rect x="106" y="61" width="28" height="28" rx="6" />
+                <rect x="26" y="101" width="28" height="28" rx="6" />
+                <rect x="186" y="61" width="28" height="28" rx="6" />
+                <rect x="186" y="101" width="28" height="28" rx="6" />
+              </g>
+              <rect class="accent-fill pulse" x="113" y="68" width="14" height="14" rx="3" />
+              <rect class="accent-fill pulse" style="animation-delay:1s" x="193" y="68" width="14" height="14" rx="3" />
+            </svg>
             <h3>Technology</h3>
-            <p>Pick, set up and get value from the right tools. Practical advice on systems, automation and data, with no vendor to sell and no lock-in.</p>
+            <p>Pick, set up and get real value from the right tools. Practical advice on systems, automation and data, with no vendor to sell and no lock-in.</p>
             <ul>
-              <li>Systems selection and rollout</li>
+              <li>Systems selection &amp; rollout</li>
               <li>Workflow automation</li>
-              <li>Reporting and data</li>
+              <li>Reporting &amp; data</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="approach" class="section section-alt">
+    <section id="approach" class="section section-dark">
       <div class="wrap">
-        <h2>How we work</h2>
-        <p class="section-intro">A simple, predictable process, so you always know what's happening and why.</p>
-        <ol class="steps">
-          <li>
+        <header class="section-head">
+          <p class="kicker reveal">Approach</p>
+          <h2 class="reveal">A simple process.<br /><em>No surprises.</em></h2>
+          <p class="section-intro reveal">You always know what's happening, why, and what you'll have at the end of each stage.</p>
+        </header>
+
+        <ol class="timeline" id="timeline">
+          <li class="track" aria-hidden="true"><span class="track-fill"></span></li>
+          <li class="step">
+            <span class="dot"></span>
             <h3>Listen</h3>
-            <p>We start by understanding your business, your goals and what's getting in the way.</p>
+            <p>We start with your business, your goals and what's getting in the way.</p>
+            <p class="deliverable">You get: a shared picture of the problem</p>
           </li>
-          <li>
+          <li class="step">
+            <span class="dot"></span>
             <h3>Assess</h3>
-            <p>We look at the evidence (numbers, processes, people) and say plainly what we find.</p>
+            <p>We look at the evidence: numbers, processes and people. Then we say plainly what we find.</p>
+            <p class="deliverable">You get: findings without the jargon</p>
           </li>
-          <li>
+          <li class="step">
+            <span class="dot"></span>
             <h3>Plan</h3>
-            <p>Together we agree on a focused plan with clear priorities, costs and outcomes.</p>
+            <p>Together we agree a focused plan with clear priorities, costs and outcomes.</p>
+            <p class="deliverable">You get: a plan with owners and dates</p>
           </li>
-          <li>
+          <li class="step">
+            <span class="dot"></span>
             <h3>Deliver</h3>
-            <p>We help put it in place and stay until the results stick.</p>
+            <p>We help put it in place and stay involved until the results stick.</p>
+            <p class="deliverable">You get: change that lasts</p>
           </li>
         </ol>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="wrap about">
-        <div>
-          <h2>About</h2>
-          <p>Buchinski.net is an independent consulting practice that helps businesses streamline operations, embrace change and grow with confidence.</p>
-          <p>We keep engagements small and senior: you work directly with the people doing the thinking. Our advice is honest and practical, and it's sized to what your business can actually take on.</p>
+    <section class="section principles">
+      <div class="wrap">
+        <div class="principle-grid">
+          <div class="principle reveal"><span>Practical</span><p>Recommendations you can act on Monday morning, not a binder for the shelf.</p></div>
+          <div class="principle reveal" style="--d:.08s"><span>Independent</span><p>No products to push, no referral fees. Our only interest is your result.</p></div>
+          <div class="principle reveal" style="--d:.16s"><span>Senior</span><p>You work directly with the people doing the thinking, start to finish.</p></div>
+          <div class="principle reveal" style="--d:.24s"><span>Plain-spoken</span><p>Clear findings, honestly delivered, even when they're not what anyone hoped.</p></div>
         </div>
-        <ul class="values">
-          <li><strong>Practical</strong><span>Recommendations you can act on Monday morning.</span></li>
-          <li><strong>Independent</strong><span>No products to push and no commissions.</span></li>
-          <li><strong>Plain-spoken</strong><span>Clear findings without the jargon.</span></li>
-        </ul>
       </div>
     </section>
 
-    <section id="contact" class="section section-alt">
-      <div class="wrap contact">
-        <div>
-          <h2>Get in touch</h2>
-          <p>Tell us a little about your business and what you're working on. We'll get back to you to set up a short, no-obligation conversation.</p>
+    <section id="notes" class="section section-paper">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker reveal">Field notes</p>
+          <h2 class="reveal">Short reads on<br /><em>getting it right.</em></h2>
+        </header>
+        <div class="notes">
+          <button class="note reveal" data-note="note-1">
+            <span class="note-meta">Strategy · 2 min read</span>
+            <span class="note-title">The meeting isn't the decision</span>
+            <span class="note-teaser">Why good plans stall after everyone agrees, and the one question that fixes it.</span>
+            <span class="note-more">Read <span class="arrow">→</span></span>
+          </button>
+          <button class="note reveal" style="--d:.1s" data-note="note-2">
+            <span class="note-meta">Operations · 2 min read</span>
+            <span class="note-title">Map the process people actually run</span>
+            <span class="note-teaser">The documented process and the real one are rarely the same. Start with the real one.</span>
+            <span class="note-more">Read <span class="arrow">→</span></span>
+          </button>
+          <button class="note reveal" style="--d:.2s" data-note="note-3">
+            <span class="note-meta">Technology · 2 min read</span>
+            <span class="note-title">Buy the boring tool</span>
+            <span class="note-teaser">The best software choice is usually the one your team will still be using in three years.</span>
+            <span class="note-more">Read <span class="arrow">→</span></span>
+          </button>
         </div>
-        <div class="form-panel">
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="wrap about">
+        <div class="about-text">
+          <p class="kicker reveal">About</p>
+          <h2 class="reveal">Small by design.<br /><em>Serious about results.</em></h2>
+          <p class="reveal">Buchinski.net is an independent consulting practice that helps businesses streamline operations, embrace change and grow with confidence.</p>
+          <p class="reveal">We keep engagements focused and senior. We take on a limited number of clients at a time, so each one gets real attention and honest advice, sized to what the business can actually take on.</p>
+          <a href="#contact" class="text-link reveal">Talk to us about your business <span class="arrow">→</span></a>
+        </div>
+        <div class="monogram reveal" aria-hidden="true">
+          <svg viewBox="0 0 400 460">
+            <defs>
+              <clipPath id="b-clip">
+                <text x="200" y="378" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="430">B</text>
+              </clipPath>
+              <pattern id="lanes" width="400" height="14" patternUnits="userSpaceOnUse">
+                <rect y="5" width="400" height="3" rx="1.5" fill="#ff6b3d" />
+              </pattern>
+            </defs>
+            <g clip-path="url(#b-clip)">
+              <rect class="lane-fill" x="-400" y="0" width="1200" height="460" fill="url(#lanes)" />
+            </g>
+            <text x="200" y="378" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="430" fill="none" stroke="#c4471f" stroke-opacity=".25" stroke-width="1.5">B</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-dark contact-section">
+      <div class="wrap contact">
+        <div class="contact-intro">
+          <p class="kicker reveal">Contact</p>
+          <h2 class="reveal">Let's make it<br /><em>simpler.</em></h2>
+          <p class="reveal">Tell us a little about your business and what you're working on. We'll get back to you to set up a short, no-obligation conversation.</p>
+          <ul class="contact-points reveal">
+            <li>No-obligation first conversation</li>
+            <li>Plain-language proposal with a fixed scope</li>
+            <li>Your information stays confidential</li>
+          </ul>
+        </div>
+        <div class="form-panel reveal" style="--d:.1s">
           <form id="contact-form" novalidate>
-            <div class="field">
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" autocomplete="name" required />
+            <div class="row">
+              <div class="field">
+                <input id="name" name="name" type="text" autocomplete="name" placeholder=" " required />
+                <label for="name">Name</label>
+              </div>
+              <div class="field">
+                <input id="email" name="email" type="email" autocomplete="email" placeholder=" " required />
+                <label for="email">Email</label>
+              </div>
             </div>
             <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
-            </div>
-            <div class="field">
+              <input id="company" name="company" type="text" autocomplete="organization" placeholder=" " />
               <label for="company">Company <span class="optional">(optional)</span></label>
-              <input id="company" name="company" type="text" autocomplete="organization" />
             </div>
             <div class="field">
+              <textarea id="message" name="message" rows="5" placeholder=" " required></textarea>
               <label for="message">How can we help?</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
             </div>
             <p class="form-error" id="form-error" role="alert" hidden></p>
-            <button type="submit" class="btn btn-primary">Send message</button>
+            <button type="submit" class="btn btn-light btn-block">Send message <span class="arrow">→</span></button>
           </form>
           <div class="form-thanks" id="form-thanks" tabindex="-1" hidden>
-            <div class="check" aria-hidden="true">✓</div>
+            <svg class="check" viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="32" r="29" pathLength="1" />
+              <path d="M19 33 l9 9 l17 -19" pathLength="1" />
+            </svg>
             <h3>Thank you, your message has been accepted.</h3>
             <p>We'll be in touch soon.</p>
           </div>
@@ -156,13 +325,62 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <span class="wordmark wordmark-small">Buchinski<span>.net</span></span>
-      <p>© <span id="year">2026</span> Buchinski.net</p>
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <a href="#top" class="wordmark" aria-label="Back to top">Buchinski<span>.net</span></a>
+        <nav aria-label="Footer">
+          <a href="#services">Services</a>
+          <a href="#approach">Approach</a>
+          <a href="#notes">Field notes</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <p class="footer-big" aria-hidden="true">Clarity out.</p>
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> Buchinski.net. All rights reserved.</p>
+        <p>Strategy · Operations · Technology</p>
+      </div>
     </div>
   </footer>
 
+  <!-- Field notes -->
+  <dialog class="note-dialog" id="note-1">
+    <article>
+      <p class="note-meta">Strategy · Field notes</p>
+      <h2>The meeting isn't the decision</h2>
+      <p>Most stalled plans didn't fail in the meeting. Everyone nodded, the slides looked good, the room agreed. Then nothing happened.</p>
+      <p>Agreement isn't the same as a decision. A decision has three parts: what we're doing, who owns it, and when we'll know it worked. Leave out any of them and you have a shared hope, not a plan.</p>
+      <p>The fix is a simple habit. Before anyone leaves, ask: <em>"Who is doing what, by when, and how will we know?"</em> Write the answer down where everyone can see it. If no one can answer, the decision isn't made yet, and that's fine. It's far better to find out in the room than three months later.</p>
+      <p>Clear ownership feels slower in the meeting. It's much faster everywhere else.</p>
+    </article>
+    <button class="dialog-close" aria-label="Close">×</button>
+  </dialog>
+  <dialog class="note-dialog" id="note-2">
+    <article>
+      <p class="note-meta">Operations · Field notes</p>
+      <h2>Map the process people actually run</h2>
+      <p>Every business has two versions of each process: the one in the manual and the one people actually follow. When something goes wrong, the second one is the one that matters.</p>
+      <p>Workarounds aren't failures. They're information. Each one marks a spot where the official process didn't fit the real work, and someone quietly fixed it. Spreadsheets on the side, a sticky note by the till, "just ask Sam": that's where the improvements are hiding.</p>
+      <p>So before redesigning anything, walk the real path end to end with the people doing it. Count the hand-offs. Note where work waits. Ask what they'd change if it were up to them. The answers are usually obvious, cheap and overdue.</p>
+      <p>Fix the real process and the manual can finally catch up.</p>
+    </article>
+    <button class="dialog-close" aria-label="Close">×</button>
+  </dialog>
+  <dialog class="note-dialog" id="note-3">
+    <article>
+      <p class="note-meta">Technology · Field notes</p>
+      <h2>Buy the boring tool</h2>
+      <p>Software demos are built to impress. Every feature looks essential when someone else is clicking through it. Then the subscription renews, the team uses a tenth of it, and the old spreadsheet is still open in another tab.</p>
+      <p>The better question isn't "what can this do?" It's "what will we still be using in three years?" That usually points to the boring choice: widely used, easy to learn, simple to get your data out of, and supported by someone who will still be around.</p>
+      <p>Start with the two or three jobs the tool really has to do well. Test those with the people who'll use it every day. Leave the rest of the feature list for later.</p>
+      <p>Technology should disappear into the work. If people talk about the tool more than the work, it's the wrong tool.</p>
+    </article>
+    <button class="dialog-close" aria-label="Close">×</button>
+  </dialog>
+
+  <script src="flow.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
