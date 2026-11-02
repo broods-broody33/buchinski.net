@@ -61,7 +61,19 @@ const words = [...statement.querySelectorAll(".w")];
 const timeline = document.getElementById("timeline");
 const steps = [...timeline.querySelectorAll(".step")];
 const services = [...document.querySelectorAll(".service")];
+const footerBig = document.querySelector(".footer-big");
 const root = document.documentElement;
+
+// The scrolling band speeds up with fast scrolling, then eases back.
+const marqueeAnim = document.querySelector(".marquee-track").getAnimations?.()[0];
+let marqueeRate = 1, easing = false, lastY = window.scrollY;
+function easeMarquee() {
+  marqueeRate += (1 - marqueeRate) * 0.06;
+  if (marqueeRate < 1.01) marqueeRate = 1;
+  marqueeAnim.playbackRate = marqueeRate;
+  if (marqueeRate > 1) requestAnimationFrame(easeMarquee);
+  else easing = false;
+}
 
 function progressThrough(el, startAt, span) {
   const r = el.getBoundingClientRect();
@@ -93,6 +105,22 @@ function onScroll() {
     inner.style.setProperty("--sc", (1 - covered * 0.06).toFixed(4));
     inner.style.setProperty("--dim", (covered * 0.1).toFixed(3));
   });
+
+  // Fills as you approach the bottom of the page, complete when you reach it.
+  const toBottom = max - window.scrollY;
+  const fill = reduceMotion ? 100 : clamp01(1 - toBottom / (window.innerHeight * 0.7)) * 100;
+  footerBig.style.setProperty("--fill", `${fill.toFixed(1)}%`);
+
+  if (marqueeAnim && !reduceMotion) {
+    const speed = Math.abs(window.scrollY - lastY);
+    marqueeRate = Math.max(marqueeRate, 1 + Math.min(speed / 8, 6));
+    marqueeAnim.playbackRate = marqueeRate;
+    if (!easing) {
+      easing = true;
+      requestAnimationFrame(easeMarquee);
+    }
+  }
+  lastY = window.scrollY;
 }
 
 let ticking = false;
@@ -140,6 +168,22 @@ if (finePointer && !reduceMotion) {
       card.style.setProperty("--y", `${e.clientY - r.top}px`);
     })
   );
+  document.querySelectorAll(".tilt").forEach((card) => {
+    card.addEventListener("pointermove", (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+      card.classList.add("tilting");
+      card.style.setProperty("--ry", `${((px - 0.5) * 10).toFixed(2)}deg`);
+      card.style.setProperty("--rx", `${((0.5 - py) * 8).toFixed(2)}deg`);
+      card.style.setProperty("--gx", `${(px * 100).toFixed(1)}%`);
+      card.style.setProperty("--gy", `${(py * 100).toFixed(1)}%`);
+    });
+    card.addEventListener("pointerleave", () => {
+      card.classList.remove("tilting");
+      card.style.setProperty("--rx", "0deg");
+      card.style.setProperty("--ry", "0deg");
+    });
+  });
   document.querySelectorAll(".magnetic").forEach((btn) => {
     btn.addEventListener("pointermove", (e) => {
       const r = btn.getBoundingClientRect();
@@ -243,6 +287,30 @@ new IntersectionObserver(([entry]) => {
   updatePause();
 }, { threshold: 0.3 }).observe(document.getElementById("canada"));
 showScenario(0);
+
+/* Coast to coast to coast: live local time in each Canadian time zone */
+const zoneClocks = [...document.querySelectorAll("[data-tz]")].map((el) => ({
+  el,
+  sun: el.parentElement.querySelector(".zone-sun"),
+  time: new Intl.DateTimeFormat("en-CA", { timeZone: el.dataset.tz, hour: "numeric", minute: "2-digit", hour12: true }),
+  hour: new Intl.DateTimeFormat("en-CA", { timeZone: el.dataset.tz, hour: "numeric", hourCycle: "h23" }),
+}));
+function tickClocks() {
+  const now = new Date();
+  zoneClocks.forEach(({ el, sun, time, hour }) => {
+    const parts = Object.fromEntries(time.formatToParts(now).map((p) => [p.type, p.value]));
+    el.innerHTML = `${parts.hour}<span class="colon">:</span>${parts.minute}<small>${parts.dayPeriod ?? ""}</small>`;
+    const h = Number(hour.format(now));
+    sun.classList.toggle("night", h < 7 || h >= 19);
+  });
+}
+tickClocks();
+setInterval(tickClocks, 10000);
+
+/* FAQ */
+document.querySelectorAll(".faq-q").forEach((q) =>
+  q.addEventListener("click", () => q.setAttribute("aria-expanded", q.getAttribute("aria-expanded") !== "true"))
+);
 
 /* Field notes dialogs */
 document.querySelectorAll("[data-note]").forEach((card) =>

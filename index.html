@@ -19,12 +19,27 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
-  <script>document.documentElement.classList.add("js");</script>
+  <script>
+    // Intro curtain plays once per visit; hero animations wait for it to lift.
+    (function () {
+      var root = document.documentElement, seen = false;
+      root.classList.add("js");
+      try { seen = sessionStorage.getItem("bn-intro") === "1"; sessionStorage.setItem("bn-intro", "1"); } catch (e) {}
+      if (seen || matchMedia("(prefers-reduced-motion: reduce)").matches) root.classList.add("no-intro", "ready");
+      else setTimeout(function () { root.classList.add("ready"); }, 1750);
+    })();
+  </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"ProfessionalService","name":"Buchinski.net","url":"https://buchinski.net/","description":"Independent consulting for strategy, operations and technology.","serviceType":["Strategy consulting","Operations consulting","Technology consulting"]}
   </script>
 </head>
 <body>
+  <div class="intro" aria-hidden="true">
+    <div class="intro-inner">
+      <svg class="intro-leaf" viewBox="-2450 -2450 4900 4900"><path d="m-90 2030 45-863a95 95 0 0 0-111-98l-859 151 116-320a65 65 0 0 0-20-73l-941-762 212-99a65 65 0 0 0 34-79l-186-572 542 115a65 65 0 0 0 73-38l105-247 423 454a65 65 0 0 0 111-57l-204-1052 327 189a65 65 0 0 0 91-27l332-652 332 652a65 65 0 0 0 91 27l327-189-204 1052a65 65 0 0 0 111 57l423-454 105 247a65 65 0 0 0 73 38l542-115-186 572a65 65 0 0 0 34 79l212 99-941 762a65 65 0 0 0-20 73l116 320-859-151a95 95 0 0 0-111 98l45 863z" /></svg>
+      <span class="intro-word">Buchinski<span>.net</span></span>
+    </div>
+  </div>
   <div class="progress" aria-hidden="true"></div>
   <div class="cursor" aria-hidden="true"></div>
 
@@ -34,6 +49,7 @@
       <nav aria-label="Main" id="menu">
         <a href="#services">Services</a>
         <a href="#approach">Approach</a>
+        <a href="#work">Work with us</a>
         <a href="#canada">Across Canada</a>
         <a href="#notes">Field notes</a>
         <a href="#about">About</a>
@@ -234,6 +250,57 @@
       </div>
     </section>
 
+    <section id="work" class="section section-paper">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker reveal">Ways to work together</p>
+          <h2 class="reveal">Start small.<br /><em>Go as far as you need.</em></h2>
+          <p class="section-intro reveal">Every engagement has a fixed scope and a fixed fee, agreed before any work begins. Pick the shape that fits the problem.</p>
+        </header>
+        <div class="models">
+          <article class="model tilt reveal">
+            <div class="model-glare" aria-hidden="true"></div>
+            <span class="model-num">01</span>
+            <h3>The Diagnostic</h3>
+            <p class="model-length">Typically 2–4 weeks</p>
+            <p>A focused, honest look at one problem: what's really going on, what it's costing you and what to do first.</p>
+            <ul>
+              <li>Interviews and a walk through the real process</li>
+              <li>Plain-language findings</li>
+              <li>A short, prioritized action list</li>
+            </ul>
+            <a href="#contact" class="text-link">Start with a diagnostic <span class="arrow">→</span></a>
+          </article>
+          <article class="model model-dark tilt reveal" style="--d:.1s">
+            <div class="model-glare" aria-hidden="true"></div>
+            <span class="model-num">02</span>
+            <h3>The Project</h3>
+            <p class="model-length">Typically 1–4 months</p>
+            <p>From plan to working change. We design the fix with your team and stay through the rollout until it sticks.</p>
+            <ul>
+              <li>Agreed outcomes and milestones</li>
+              <li>Hands-on implementation support</li>
+              <li>Hand-off your team can run with</li>
+            </ul>
+            <a href="#contact" class="text-link">Talk about a project <span class="arrow">→</span></a>
+          </article>
+          <article class="model tilt reveal" style="--d:.2s">
+            <div class="model-glare" aria-hidden="true"></div>
+            <span class="model-num">03</span>
+            <h3>The Advisor</h3>
+            <p class="model-length">Monthly, ongoing</p>
+            <p>A senior sounding board for owners and leadership teams, on call for the decisions that keep you up at night.</p>
+            <ul>
+              <li>Regular working sessions</li>
+              <li>Help with decisions as they come up</li>
+              <li>Cancel anytime, no lock-in</li>
+            </ul>
+            <a href="#contact" class="text-link">Ask about advisory <span class="arrow">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="values" class="section values-section">
       <div class="wrap">
         <svg class="values-leaf draw-on" viewBox="-2450 -2450 4900 4900" aria-hidden="true" focusable="false"><path d="m-90 2030 45-863a95 95 0 0 0-111-98l-859 151 116-320a65 65 0 0 0-20-73l-941-762 212-99a65 65 0 0 0 34-79l-186-572 542 115a65 65 0 0 0 73-38l105-247 423 454a65 65 0 0 0 111-57l-204-1052 327 189a65 65 0 0 0 91-27l332-652 332 652a65 65 0 0 0 91 27l327-189-204 1052a65 65 0 0 0 111 57l423-454 105 247a65 65 0 0 0 73 38l542-115-186 572a65 65 0 0 0 34 79l212 99-941 762a65 65 0 0 0-20 73l116 320-859-151a95 95 0 0 0-111 98l45 863z" /></svg>
@@ -305,6 +372,18 @@
             <p class="scenario-note">Illustrative scenarios: composites of common situations, not specific clients.</p>
           </div>
         </div>
+
+        <div class="zones reveal">
+          <p class="zones-title">Coast to coast to coast <span>Six time zones, one point of contact. Yes, Newfoundland's runs half an hour ahead.</span></p>
+          <div class="zone-row">
+          <div class="zone"><span class="zone-city">Vancouver</span><span class="zone-time" data-tz="America/Vancouver">--:--</span><span class="zone-abbr">PT<i class="zone-sun" aria-hidden="true"></i></span></div>
+          <div class="zone"><span class="zone-city">Edmonton</span><span class="zone-time" data-tz="America/Edmonton">--:--</span><span class="zone-abbr">MT<i class="zone-sun" aria-hidden="true"></i></span></div>
+          <div class="zone"><span class="zone-city">Winnipeg</span><span class="zone-time" data-tz="America/Winnipeg">--:--</span><span class="zone-abbr">CT<i class="zone-sun" aria-hidden="true"></i></span></div>
+          <div class="zone"><span class="zone-city">Toronto</span><span class="zone-time" data-tz="America/Toronto">--:--</span><span class="zone-abbr">ET<i class="zone-sun" aria-hidden="true"></i></span></div>
+          <div class="zone"><span class="zone-city">Halifax</span><span class="zone-time" data-tz="America/Halifax">--:--</span><span class="zone-abbr">AT<i class="zone-sun" aria-hidden="true"></i></span></div>
+          <div class="zone"><span class="zone-city">St. John's</span><span class="zone-time" data-tz="America/St_Johns">--:--</span><span class="zone-abbr">NT<i class="zone-sun" aria-hidden="true"></i></span></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -365,7 +444,39 @@
       </div>
     </section>
 
+    <section id="faq" class="section section-paper">
+      <div class="wrap faq">
+        <header class="section-head">
+          <p class="kicker reveal">Questions</p>
+          <h2 class="reveal">Good questions,<br /><em>straight answers.</em></h2>
+        </header>
+        <div class="faq-list">
+          <div class="faq-item reveal" style="--d:0.00s">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-0" id="faq-q-0">Who do you work with?<span class="faq-icon" aria-hidden="true"></span></button>
+            <div class="faq-a" id="faq-0" role="region" aria-labelledby="faq-q-0"><div><p>Owner-led and mid-sized Canadian businesses, family companies and non-profits: organizations big enough to have real complexity, small enough that the right change makes a visible difference.</p></div></div>
+          </div>
+          <div class="faq-item reveal" style="--d:0.05s">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-1" id="faq-q-1">Do you work outside your own city?<span class="faq-icon" aria-hidden="true"></span></button>
+            <div class="faq-a" id="faq-1" role="region" aria-labelledby="faq-q-1"><div><p>Yes. We work with clients across Canada, mostly remotely, and on site when being in the room genuinely helps.</p></div></div>
+          </div>
+          <div class="faq-item reveal" style="--d:0.10s">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-2" id="faq-q-2">How is pricing handled?<span class="faq-icon" aria-hidden="true"></span></button>
+            <div class="faq-a" id="faq-2" role="region" aria-labelledby="faq-q-2"><div><p>Every engagement has a fixed scope and a fixed fee, agreed in writing before work starts. No hourly meters running, no surprise invoices.</p></div></div>
+          </div>
+          <div class="faq-item reveal" style="--d:0.15s">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-3" id="faq-q-3">How do we get started?<span class="faq-icon" aria-hidden="true"></span></button>
+            <div class="faq-a" id="faq-3" role="region" aria-labelledby="faq-q-3"><div><p>Send a note through the form below. We'll set up a short, no-obligation conversation, then follow up with a plain-language proposal if it looks like a good fit.</p></div></div>
+          </div>
+          <div class="faq-item reveal" style="--d:0.20s">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-4" id="faq-q-4">Will our information stay confidential?<span class="faq-icon" aria-hidden="true"></span></button>
+            <div class="faq-a" id="faq-4" role="region" aria-labelledby="faq-q-4"><div><p>Always. We're happy to sign your NDA before the first detailed conversation.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="contact" class="section section-dark contact-section">
+      <canvas id="aurora" aria-hidden="true"></canvas>
       <div class="wrap contact">
         <div class="contact-intro">
           <p class="kicker reveal">Contact</p>
@@ -422,7 +533,9 @@
           <a href="#approach">Approach</a>
           <a href="#canada">Across Canada</a>
           <a href="#notes">Field notes</a>
+          <a href="#work">Work with us</a>
           <a href="#about">About</a>
+          <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -470,6 +583,7 @@
   </dialog>
 
   <script src="flow.js"></script>
+  <script src="aurora.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
