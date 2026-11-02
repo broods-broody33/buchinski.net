@@ -83,25 +83,6 @@ a:hover .arrow, button:hover .arrow { transform: translateX(4px); }
   transform: scaleX(var(--scroll, 0));
 }
 
-/* Custom cursor (desktop only, switched on by script) */
-.cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 70;
-  width: 34px;
-  height: 34px;
-  margin: -17px 0 0 -17px;
-  border: 1.5px solid #fff;
-  border-radius: 50%;
-  pointer-events: none;
-  mix-blend-mode: difference;
-  opacity: 0;
-  transition: width .3s var(--ease), height .3s var(--ease), margin .3s var(--ease), opacity .3s;
-}
-.has-cursor .cursor { opacity: 1; }
-.cursor.big { width: 64px; height: 64px; margin: -32px 0 0 -32px; }
-
 /* Wordmark */
 .wordmark {
   font-family: var(--serif);

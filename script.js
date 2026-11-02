@@ -135,32 +135,8 @@ window.addEventListener("scroll", () => {
 window.addEventListener("resize", onScroll);
 onScroll();
 
-/* Pointer effects (desktop only): cursor ring, spotlight cards, magnetic buttons */
+/* Pointer effects (desktop only): spotlight cards, tilt, magnetic buttons */
 if (finePointer && !reduceMotion) {
-  const cursor = document.querySelector(".cursor");
-  const pos = { x: -100, y: -100 }, ring = { x: -100, y: -100 };
-  let following = false;
-  const follow = () => {
-    ring.x += (pos.x - ring.x) * 0.2;
-    ring.y += (pos.y - ring.y) * 0.2;
-    cursor.style.transform = `translate(${ring.x}px, ${ring.y}px)`;
-    if (Math.abs(pos.x - ring.x) + Math.abs(pos.y - ring.y) > 0.5) requestAnimationFrame(follow);
-    else following = false;
-  };
-  window.addEventListener("pointermove", (e) => {
-    pos.x = e.clientX;
-    pos.y = e.clientY;
-    root.classList.add("has-cursor");
-    if (!following) {
-      following = true;
-      requestAnimationFrame(follow);
-    }
-  });
-  document.addEventListener("pointerleave", () => root.classList.remove("has-cursor"));
-  document.addEventListener("pointerover", (e) => {
-    cursor.classList.toggle("big", !!e.target.closest("a, button, .city, input, textarea"));
-  });
-
   document.querySelectorAll(".spotlight").forEach((card) =>
     card.addEventListener("pointermove", (e) => {
       const r = card.getBoundingClientRect();
