@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Buchinski.net — Strategy, Operations &amp; Technology Consulting</title>
   <meta name="description" content="Buchinski.net is an independent consultancy that turns business complexity into clarity: sharper strategy, smoother operations and technology that earns its keep." />
-  <meta name="theme-color" content="#0c0f0e" />
+  <meta name="theme-color" content="#101312" />
   <link rel="canonical" href="https://buchinski.net/" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://buchinski.net/" />
@@ -17,7 +17,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script>document.documentElement.classList.add("js");</script>
   <script type="application/ld+json">
@@ -26,6 +26,7 @@
 </head>
 <body>
   <div class="progress" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"></div>
 
   <header class="nav" id="nav">
     <div class="wrap nav-inner">
@@ -33,6 +34,7 @@
       <nav aria-label="Main" id="menu">
         <a href="#services">Services</a>
         <a href="#approach">Approach</a>
+        <a href="#canada">Across Canada</a>
         <a href="#notes">Field notes</a>
         <a href="#about">About</a>
         <a href="#contact" class="menu-only">Contact</a>
@@ -48,9 +50,9 @@
       <canvas id="flow" aria-hidden="true"></canvas>
       <div class="hero-scrim" aria-hidden="true"></div>
       <div class="wrap hero-content">
-        <p class="eyebrow reveal">Independent consulting &nbsp;/&nbsp; Strategy · Operations · Technology</p>
+        <p class="eyebrow reveal"><svg class="leaf-inline" viewBox="-2450 -2450 4900 4900" aria-hidden="true"><path d="m-90 2030 45-863a95 95 0 0 0-111-98l-859 151 116-320a65 65 0 0 0-20-73l-941-762 212-99a65 65 0 0 0 34-79l-186-572 542 115a65 65 0 0 0 73-38l105-247 423 454a65 65 0 0 0 111-57l-204-1052 327 189a65 65 0 0 0 91-27l332-652 332 652a65 65 0 0 0 91 27l327-189-204 1052a65 65 0 0 0 111 57l423-454 105 247a65 65 0 0 0 73 38l542-115-186 572a65 65 0 0 0 34 79l212 99-941 762a65 65 0 0 0-20 73l116 320-859-151a95 95 0 0 0-111 98l45 863z" /></svg>Canadian-owned &amp; independent &nbsp;/&nbsp; Strategy · Operations · Technology</p>
         <h1 class="hero-title">
-          <span class="line"><span>Complexity in.</span></span>
+          <span class="line line-scramble"><span class="scramble">Complexity in.</span></span>
           <span class="line"><span><em>Clarity</em> out.</span></span>
         </h1>
         <p class="lede reveal" style="--d:.5s">We help businesses untangle how they decide, operate and use technology, so the work gets simpler and the results get better.</p>
@@ -61,6 +63,13 @@
       </div>
       <div class="fig fig-left" aria-hidden="true">fig. 01 — complexity</div>
       <div class="fig fig-right" aria-hidden="true">clarity</div>
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 200 200" class="badge-ring">
+          <defs><path id="badge-circle" d="M100 100 m-78 0 a78 78 0 1 1 156 0 a78 78 0 1 1 -156 0" /></defs>
+          <text><textPath href="#badge-circle">Proudly Canadian · Independent · Est. in Canada ·</textPath></text>
+        </svg>
+        <svg class="badge-leaf" viewBox="-2450 -2450 4900 4900" aria-hidden="true"><path d="m-90 2030 45-863a95 95 0 0 0-111-98l-859 151 116-320a65 65 0 0 0-20-73l-941-762 212-99a65 65 0 0 0 34-79l-186-572 542 115a65 65 0 0 0 73-38l105-247 423 454a65 65 0 0 0 111-57l-204-1052 327 189a65 65 0 0 0 91-27l332-652 332 652a65 65 0 0 0 91 27l327-189-204 1052a65 65 0 0 0 111 57l423-454 105 247a65 65 0 0 0 73 38l542-115-186 572a65 65 0 0 0 34 79l212 99-941 762a65 65 0 0 0-20 73l116 320-859-151a95 95 0 0 0-111 98l45 863z" /></svg>
+      </div>
       <a href="#statement" class="scroll-cue" aria-label="Scroll down"><span></span></a>
     </section>
 
@@ -87,9 +96,11 @@
         </header>
 
         <div class="services">
-          <article class="service spotlight reveal">
-            <div class="service-num">01</div>
-            <svg class="illo" viewBox="0 0 240 150" aria-hidden="true">
+          <article class="service draw-on" style="--i:0">
+            <div class="service-inner spotlight">
+              <div class="service-art">
+                <div class="service-num">01 <span>/ 03</span></div>
+                <svg class="illo" viewBox="0 0 240 150" aria-hidden="true">
               <g class="draw" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
                 <path pathLength="1" d="M8 18 C 90 18, 110 75, 176 75" />
                 <path pathLength="1" d="M8 46 C 80 46, 120 75, 176 75" />
@@ -104,18 +115,23 @@
               </g>
               <circle class="accent-fill" cx="176" cy="75" r="5" />
             </svg>
-            <h3>Strategy</h3>
+              </div>
+              <div class="service-body">
+                <h3>Strategy</h3>
             <p>Set a direction you can act on. We work through priorities, growth options and the trade-offs between them, then turn the decision into a plan with owners and milestones.</p>
             <ul>
               <li>Business &amp; growth planning</li>
               <li>Market &amp; competitor review</li>
               <li>Roadmaps &amp; goal setting</li>
             </ul>
+              </div>
+            </div>
           </article>
-
-          <article class="service spotlight reveal" style="--d:.12s">
-            <div class="service-num">02</div>
-            <svg class="illo" viewBox="0 0 240 150" aria-hidden="true">
+          <article class="service draw-on" style="--i:1">
+            <div class="service-inner spotlight">
+              <div class="service-art">
+                <div class="service-num">02 <span>/ 03</span></div>
+                <svg class="illo" viewBox="0 0 240 150" aria-hidden="true">
               <path id="ops-path" class="draw-one" pathLength="1" fill="none" stroke="currentColor" stroke-width="1.4" d="M30 40 H 120 H 210 V 110 H 120 H 30 Z" />
               <g class="nodes">
                 <rect x="14" y="26" width="32" height="28" rx="8" />
@@ -131,18 +147,23 @@
                 </animateMotion>
               </circle>
             </svg>
-            <h3>Operations</h3>
+              </div>
+              <div class="service-body">
+                <h3>Operations</h3>
             <p>Take the friction out of how work gets done. We map your processes as they really run, find the bottlenecks and fix them with you, not just report on them.</p>
             <ul>
               <li>Process mapping &amp; redesign</li>
               <li>Cost &amp; efficiency reviews</li>
               <li>Change management</li>
             </ul>
+              </div>
+            </div>
           </article>
-
-          <article class="service spotlight reveal" style="--d:.24s">
-            <div class="service-num">03</div>
-            <svg class="illo" viewBox="0 0 240 150" aria-hidden="true">
+          <article class="service draw-on" style="--i:2">
+            <div class="service-inner spotlight">
+              <div class="service-art">
+                <div class="service-num">03 <span>/ 03</span></div>
+                <svg class="illo" viewBox="0 0 240 150" aria-hidden="true">
               <g class="draw" fill="none" stroke="currentColor" stroke-width="1.4">
                 <path pathLength="1" d="M40 35 H 120 V 75 H 200" />
                 <path pathLength="1" d="M40 115 H 80 V 75 H 120" />
@@ -159,13 +180,17 @@
               <rect class="accent-fill pulse" x="113" y="68" width="14" height="14" rx="3" />
               <rect class="accent-fill pulse" style="animation-delay:1s" x="193" y="68" width="14" height="14" rx="3" />
             </svg>
-            <h3>Technology</h3>
+              </div>
+              <div class="service-body">
+                <h3>Technology</h3>
             <p>Pick, set up and get real value from the right tools. Practical advice on systems, automation and data, with no vendor to sell and no lock-in.</p>
             <ul>
               <li>Systems selection &amp; rollout</li>
               <li>Workflow automation</li>
               <li>Reporting &amp; data</li>
             </ul>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -209,13 +234,76 @@
       </div>
     </section>
 
-    <section class="section principles">
+    <section id="values" class="section values-section">
       <div class="wrap">
-        <div class="principle-grid">
-          <div class="principle reveal"><span>Practical</span><p>Recommendations you can act on Monday morning, not a binder for the shelf.</p></div>
-          <div class="principle reveal" style="--d:.08s"><span>Independent</span><p>No products to push, no referral fees. Our only interest is your result.</p></div>
-          <div class="principle reveal" style="--d:.16s"><span>Senior</span><p>You work directly with the people doing the thinking, start to finish.</p></div>
-          <div class="principle reveal" style="--d:.24s"><span>Plain-spoken</span><p>Clear findings, honestly delivered, even when they're not what anyone hoped.</p></div>
+        <svg class="values-leaf draw-on" viewBox="-2450 -2450 4900 4900" aria-hidden="true" focusable="false"><path d="m-90 2030 45-863a95 95 0 0 0-111-98l-859 151 116-320a65 65 0 0 0-20-73l-941-762 212-99a65 65 0 0 0 34-79l-186-572 542 115a65 65 0 0 0 73-38l105-247 423 454a65 65 0 0 0 111-57l-204-1052 327 189a65 65 0 0 0 91-27l332-652 332 652a65 65 0 0 0 91 27l327-189-204 1052a65 65 0 0 0 111 57l423-454 105 247a65 65 0 0 0 73 38l542-115-186 572a65 65 0 0 0 34 79l212 99-941 762a65 65 0 0 0-20 73l116 320-859-151a95 95 0 0 0-111 98l45 863z" /></svg>
+        <header class="section-head">
+          <p class="kicker reveal">Proudly Canadian</p>
+          <h2 class="reveal">Canadian values,<br /><em>applied to business.</em></h2>
+          <p class="section-intro reveal">We're a Canadian-owned, independent practice. The way we work reflects the way business is done best in this country: honest, fair and built to last.</p>
+        </header>
+        <div class="values">
+          <div class="value reveal">
+            <span class="value-num">01</span>
+            <h3>Straight talk, politely delivered</h3>
+            <p>We'll tell you what we really think, kindly and clearly. No jargon, no runaround, no telling you only what you want to hear.</p>
+          </div>
+          <div class="value reveal" style="--d:.08s">
+            <span class="value-num">02</span>
+            <h3>Fair dealing</h3>
+            <p>Fixed scopes, honest pricing and no surprise invoices. A handshake should still mean something.</p>
+          </div>
+          <div class="value reveal" style="--d:.16s">
+            <span class="value-num">03</span>
+            <h3>Built for every season</h3>
+            <p>Prudent advice that holds up in good years and lean ones. We plan for the long winter, not just the next quarter.</p>
+          </div>
+          <div class="value reveal" style="--d:.24s">
+            <span class="value-num">04</span>
+            <h3>Rooted in community</h3>
+            <p>When local businesses do well, whole towns do well. We're proud to help Canadian companies grow here at home.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="canada" class="section section-dark canada">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker reveal">Across Canada</p>
+          <h2 class="reveal">Different provinces.<br /><em>Familiar problems.</em></h2>
+          <p class="section-intro reveal">From the West Coast to the Rock, growing businesses run into the same few knots. Pick a city to see the kind of situation we help with.</p>
+        </header>
+
+        <div class="canada-grid">
+          <div class="map draw-on" id="map">
+            <img class="map-dots" src="canada-map.svg" alt="" width="1000" height="861" />
+            <svg class="map-route" viewBox="0 0 1000 861" aria-hidden="true">
+              <path pathLength="1" d="M63 608 C 120 590, 150 630, 188 624 S 250 615, 286 630 S 360 700, 401 695 S 600 760, 664 811 S 690 770, 710 761 S 725 748, 740 751 S 840 700, 887 714 S 960 600, 993 581" />
+            </svg>
+            <div class="cities" id="cities"></div>
+          </div>
+
+          <div class="scenario reveal" id="scenario" aria-live="polite">
+            <div class="scenario-top">
+              <span class="scenario-tag" id="sc-tag">Operations</span>
+              <span class="scenario-count" id="sc-count">01 / 09</span>
+            </div>
+            <div class="scenario-body" id="sc-body">
+              <p class="scenario-place" id="sc-place">Winnipeg, MB</p>
+              <h3 id="sc-who">A regional distributor</h3>
+              <p class="scenario-label">The situation</p>
+              <p id="sc-problem">Volume is up every year, but margins keep shrinking and nobody can say which customers or routes are actually profitable.</p>
+              <p class="scenario-label">Where we'd start</p>
+              <p id="sc-start">Work out the real cost to serve each customer and route, then reset pricing, minimums and delivery days around it.</p>
+            </div>
+            <div class="scenario-nav">
+              <button class="round-btn" id="sc-prev" aria-label="Previous city">←</button>
+              <div class="scenario-progress"><span id="sc-bar"></span></div>
+              <button class="round-btn" id="sc-next" aria-label="Next city">→</button>
+            </div>
+            <p class="scenario-note">Illustrative scenarios: composites of common situations, not specific clients.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -265,13 +353,13 @@
                 <text x="200" y="378" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="430">B</text>
               </clipPath>
               <pattern id="lanes" width="400" height="14" patternUnits="userSpaceOnUse">
-                <rect y="5" width="400" height="3" rx="1.5" fill="#ff6b3d" />
+                <rect y="5" width="400" height="3" rx="1.5" fill="#d27a55" />
               </pattern>
             </defs>
             <g clip-path="url(#b-clip)">
               <rect class="lane-fill" x="-400" y="0" width="1200" height="460" fill="url(#lanes)" />
             </g>
-            <text x="200" y="378" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="430" fill="none" stroke="#c4471f" stroke-opacity=".25" stroke-width="1.5">B</text>
+            <text x="200" y="378" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="430" fill="none" stroke="#a5532f" stroke-opacity=".25" stroke-width="1.5">B</text>
           </svg>
         </div>
       </div>
@@ -332,6 +420,7 @@
         <nav aria-label="Footer">
           <a href="#services">Services</a>
           <a href="#approach">Approach</a>
+          <a href="#canada">Across Canada</a>
           <a href="#notes">Field notes</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
@@ -340,7 +429,7 @@
       <p class="footer-big" aria-hidden="true">Clarity out.</p>
       <div class="footer-bottom">
         <p>© <span id="year">2026</span> Buchinski.net. All rights reserved.</p>
-        <p>Strategy · Operations · Technology</p>
+        <p class="proud"><svg class="leaf-inline" viewBox="-2450 -2450 4900 4900" aria-hidden="true"><path d="m-90 2030 45-863a95 95 0 0 0-111-98l-859 151 116-320a65 65 0 0 0-20-73l-941-762 212-99a65 65 0 0 0 34-79l-186-572 542 115a65 65 0 0 0 73-38l105-247 423 454a65 65 0 0 0 111-57l-204-1052 327 189a65 65 0 0 0 91-27l332-652 332 652a65 65 0 0 0 91 27l327-189-204 1052a65 65 0 0 0 111 57l423-454 105 247a65 65 0 0 0 73 38l542-115-186 572a65 65 0 0 0 34 79l212 99-941 762a65 65 0 0 0-20 73l116 320-859-151a95 95 0 0 0-111 98l45 863z" /></svg>Proudly Canadian · Strategy · Operations · Technology</p>
       </div>
     </div>
   </footer>

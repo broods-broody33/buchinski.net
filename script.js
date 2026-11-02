@@ -4,8 +4,21 @@ const COUNTER_URL = "https://abacus.jasoncameron.dev/hit/buchinski-net/contact-f
 
 const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const finePointer = matchMedia("(hover: hover) and (pointer: fine)").matches;
+const stacking = matchMedia("(min-width: 761px) and (min-height: 700px)");
+const clamp01 = (v) => Math.min(1, Math.max(0, v));
 
 document.getElementById("year").textContent = new Date().getFullYear();
+
+/* Hero: the letters of "Complexity in." fly in scattered and settle into place */
+const scramble = document.querySelector(".scramble");
+const scrambleText = scramble.textContent;
+scramble.innerHTML =
+  `<span class="sr-only">${scrambleText}</span>` +
+  [...scrambleText].map((ch, i) => {
+    const r = (n) => (Math.random() * 2 - 1) * n;
+    const style = `--tx:${r(90).toFixed(0)}px;--ty:${r(70).toFixed(0)}px;--r:${r(55).toFixed(0)}deg;--d:${(0.05 + i * 0.045 + Math.random() * 0.12).toFixed(2)}s`;
+    return `<span class="ch" aria-hidden="true" style="${style}">${ch}</span>`;
+  }).join("");
 
 /* Nav: solid background after the hero starts scrolling; mobile menu */
 const nav = document.getElementById("nav");
@@ -24,7 +37,7 @@ nav.querySelectorAll("nav a").forEach((link) =>
   })
 );
 
-/* Reveal on scroll */
+/* Reveal and line drawing on scroll */
 const revealer = new IntersectionObserver(
   (entries) => entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -34,7 +47,7 @@ const revealer = new IntersectionObserver(
   }),
   { rootMargin: "0px 0px -8% 0px" }
 );
-document.querySelectorAll(".reveal").forEach((el) => revealer.observe(el));
+document.querySelectorAll(".reveal, .draw-on").forEach((el) => revealer.observe(el));
 
 /* Statement: words light up as it scrolls through the viewport */
 const statement = document.querySelector("[data-words]");
@@ -47,12 +60,13 @@ const words = [...statement.querySelectorAll(".w")];
 
 const timeline = document.getElementById("timeline");
 const steps = [...timeline.querySelectorAll(".step")];
+const services = [...document.querySelectorAll(".service")];
 const root = document.documentElement;
 
 function progressThrough(el, startAt, span) {
   const r = el.getBoundingClientRect();
   const vh = window.innerHeight;
-  return Math.min(1, Math.max(0, (vh * startAt - r.top) / (r.height + vh * span)));
+  return clamp01((vh * startAt - r.top) / (r.height + vh * span));
 }
 
 function onScroll() {
@@ -66,6 +80,19 @@ function onScroll() {
   const p = reduceMotion ? 1 : progressThrough(timeline, 0.75, 0.05);
   timeline.style.setProperty("--p", p);
   steps.forEach((step, i) => step.classList.toggle("active", p >= i / steps.length + 0.02));
+
+  // Service cards stack: each one shrinks and dims as the next slides over it.
+  services.forEach((card, i) => {
+    const inner = card.firstElementChild;
+    const next = services[i + 1];
+    let covered = 0;
+    if (next && stacking.matches && !reduceMotion) {
+      const r = card.getBoundingClientRect();
+      covered = clamp01((r.bottom - next.getBoundingClientRect().top) / r.height);
+    }
+    inner.style.setProperty("--sc", (1 - covered * 0.06).toFixed(4));
+    inner.style.setProperty("--dim", (covered * 0.1).toFixed(3));
+  });
 }
 
 let ticking = false;
@@ -80,8 +107,32 @@ window.addEventListener("scroll", () => {
 window.addEventListener("resize", onScroll);
 onScroll();
 
-/* Pointer effects (desktop only): spotlight cards, magnetic buttons */
+/* Pointer effects (desktop only): cursor ring, spotlight cards, magnetic buttons */
 if (finePointer && !reduceMotion) {
+  const cursor = document.querySelector(".cursor");
+  const pos = { x: -100, y: -100 }, ring = { x: -100, y: -100 };
+  let following = false;
+  const follow = () => {
+    ring.x += (pos.x - ring.x) * 0.2;
+    ring.y += (pos.y - ring.y) * 0.2;
+    cursor.style.transform = `translate(${ring.x}px, ${ring.y}px)`;
+    if (Math.abs(pos.x - ring.x) + Math.abs(pos.y - ring.y) > 0.5) requestAnimationFrame(follow);
+    else following = false;
+  };
+  window.addEventListener("pointermove", (e) => {
+    pos.x = e.clientX;
+    pos.y = e.clientY;
+    root.classList.add("has-cursor");
+    if (!following) {
+      following = true;
+      requestAnimationFrame(follow);
+    }
+  });
+  document.addEventListener("pointerleave", () => root.classList.remove("has-cursor"));
+  document.addEventListener("pointerover", (e) => {
+    cursor.classList.toggle("big", !!e.target.closest("a, button, .city, input, textarea"));
+  });
+
   document.querySelectorAll(".spotlight").forEach((card) =>
     card.addEventListener("pointermove", (e) => {
       const r = card.getBoundingClientRect();
@@ -101,6 +152,97 @@ if (finePointer && !reduceMotion) {
     });
   });
 }
+
+/* Across Canada: illustrative scenarios on the map (composites, not clients).
+   x/y are positions on canada-map.svg (1000 × 861). */
+const SCENARIOS = [
+  { city: "Vancouver", prov: "BC", x: 63, y: 608, tag: "Technology", who: "An independent retail group with six stores",
+    problem: "Stock lives in a different spreadsheet at every location, so reordering is guesswork and good sellers keep running out.",
+    start: "One shared view of inventory across the stores, with simple reorder rules the team can actually keep up with." },
+  { city: "Calgary", prov: "AB", x: 188, y: 624, tag: "Operations", who: "An energy services contractor",
+    problem: "Field crews and the office work from different versions of the schedule, and every change turns into a round of phone calls.",
+    start: "Map dispatch from first call to closed job, then move everyone onto a single schedule they all trust." },
+  { city: "Saskatoon", prov: "SK", x: 286, y: 630, tag: "Strategy", who: "An agricultural equipment dealer",
+    problem: "After two strong years, the owners are torn on whether to open a second location or invest in the one they have.",
+    start: "Test both options against real demand and cash flow before anyone signs a lease." },
+  { city: "Winnipeg", prov: "MB", x: 401, y: 695, tag: "Operations", who: "A regional distributor",
+    problem: "Volume is up every year, but margins keep shrinking and nobody can say which customers or routes are actually profitable.",
+    start: "Work out the real cost to serve each customer and route, then reset pricing, minimums and delivery days around it." },
+  { city: "Toronto", prov: "ON", x: 664, y: 811, tag: "Strategy", who: "A 40-person professional services firm",
+    problem: "The partners agree the firm should grow but disagree on how, so every planning meeting ends without a decision.",
+    start: "A structured planning process that ends with three priorities, each with an owner, a budget and a date." },
+  { city: "Ottawa", prov: "ON", x: 710, y: 761, tag: "Technology", who: "A national non-profit",
+    problem: "Quarterly reporting to funders takes a week of copying numbers between systems, and the totals rarely match the first time.",
+    start: "Automate the data collection and build one reporting template that every program feeds into." },
+  { city: "Montréal", prov: "QC", x: 740, y: 751, tag: "Operations", who: "A specialty food manufacturer",
+    problem: "New wholesale accounts are great news, but production planning hasn't kept up and overtime is becoming the plan.",
+    start: "A realistic capacity plan and a weekly sales-and-production rhythm so orders and the plant stay in step." },
+  { city: "Halifax", prov: "NS", x: 887, y: 714, tag: "Strategy", who: "A family-owned marine supplier",
+    problem: "The founder wants to step back, but every decision still runs through them and nothing is written down.",
+    start: "Document how decisions really get made, delegate in stages and build a succession roadmap the family agrees on." },
+  { city: "St. John's", prov: "NL", x: 993, y: 581, tag: "Technology", who: "A growing construction firm",
+    problem: "They need new job-costing software and have three vendor demos booked, but no agreed list of what it must do.",
+    start: "Agree the three must-haves first, then test each option with the people who'll use it on site." },
+];
+
+const cityLayer = document.getElementById("cities");
+const scenarioCard = document.getElementById("scenario");
+const scBody = document.getElementById("sc-body");
+const scBar = document.getElementById("sc-bar");
+const field = (id) => document.getElementById(id);
+const cityButtons = SCENARIOS.map((s, i) => {
+  const btn = document.createElement("button");
+  btn.className = "city" + (s.x < 120 ? " edge-left" : s.x > 860 ? " edge-right" : "");
+  btn.style.left = `${s.x / 10}%`;
+  btn.style.top = `${(s.y / 861) * 100}%`;
+  btn.setAttribute("aria-label", `${s.city}, ${s.prov}`);
+  btn.innerHTML = `<span class="city-label">${s.city}</span>`;
+  btn.addEventListener("click", () => showScenario(i));
+  cityLayer.appendChild(btn);
+  return btn;
+});
+
+let current = 0, inView = false, hovering = false;
+
+function showScenario(i) {
+  current = (i + SCENARIOS.length) % SCENARIOS.length;
+  const s = SCENARIOS[current];
+  field("sc-tag").textContent = s.tag;
+  field("sc-count").textContent = `${String(current + 1).padStart(2, "0")} / ${String(SCENARIOS.length).padStart(2, "0")}`;
+  field("sc-place").textContent = `${s.city}, ${s.prov}`;
+  field("sc-who").textContent = s.who;
+  field("sc-problem").textContent = s.problem;
+  field("sc-start").textContent = s.start;
+  cityButtons.forEach((b, j) => b.classList.toggle("active", j === current));
+  scBody.classList.remove("swap");
+  void scBody.offsetWidth; // restart the swap animation
+  scBody.classList.add("swap");
+  restartTimer();
+}
+
+// The progress bar is the timer: when its fill animation ends, move east.
+function restartTimer() {
+  if (reduceMotion) return;
+  scBar.classList.remove("run");
+  void scBar.offsetWidth;
+  scBar.classList.add("run");
+  updatePause();
+}
+function updatePause() {
+  scBar.classList.toggle("paused", !inView || hovering);
+}
+scBar.addEventListener("animationend", () => showScenario(current + 1));
+field("sc-prev").addEventListener("click", () => showScenario(current - 1));
+field("sc-next").addEventListener("click", () => showScenario(current + 1));
+[scenarioCard, cityLayer].forEach((el) => {
+  el.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") { hovering = true; updatePause(); } });
+  el.addEventListener("pointerleave", () => { hovering = false; updatePause(); });
+});
+new IntersectionObserver(([entry]) => {
+  inView = entry.isIntersecting;
+  updatePause();
+}, { threshold: 0.3 }).observe(document.getElementById("canada"));
+showScenario(0);
 
 /* Field notes dialogs */
 document.querySelectorAll("[data-note]").forEach((card) =>

@@ -10,13 +10,13 @@
   const still = canvas.hasAttribute("data-static") ||
     matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  const BG = "12,15,14";
+  const BG = "16,19,18";
   const LANE = 18;
   const BUCKETS = [
     "rgba(196,188,170,0.28)",
     "rgba(214,196,170,0.36)",
-    "rgba(255,107,61,0.55)",
-    "rgba(255,176,140,0.85)",
+    "rgba(210,122,85,0.5)",
+    "rgba(231,185,159,0.75)",
   ];
   const pointer = { x: -9999, y: -9999 };
   let w = 0, h = 0, t = 0, particles = [], running = false, frame = 0;
